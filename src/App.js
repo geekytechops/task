@@ -1,10 +1,12 @@
 import './App.css';
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function App() {
   const input1Ref = useRef();
   const input2Ref = useRef();
+  const navigate=useNavigate();
   const [postData, setPostData]=useState({email:'',pass:''})
   const submit = async() =>{
    if(input1Ref.current.value=='' || input2Ref.current.value==''){
@@ -30,9 +32,9 @@ function App() {
     input2Ref.current.style.borderColor='red';
     input1Ref.current.style.borderColor='';
    }else{
-    console.log(response.data);
+    navigate('/dash');
    }
-   
+
    }
   }
 
