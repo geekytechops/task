@@ -12,6 +12,7 @@ app.use(session({secret: "Shh, its a secret!",saveUninitialized:true,resave:fals
 const functionsLib=require('./functions.js')
 
 app.post('/loginValidate',functionsLib.loginValidate);
+app.post('/sessionCheck',functionsLib.sessionCheck);
 
 app.listen(9898,()=>{
   console.log('Running');

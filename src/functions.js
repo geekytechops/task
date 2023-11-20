@@ -5,4 +5,11 @@ const loginValidate = async(req,res)=>{
     req.session.user_id=result;
     res.json({response:result});
 }
-module.exports={loginValidate};
+
+const sessionCheck = async(req,res)=>{
+    const response = req.session.user_id=='' ? 0 : req.session.user_id;
+    console.log(req.session.user_id);
+    // res.json({data:response})
+}
+
+module.exports={loginValidate,sessionCheck};
